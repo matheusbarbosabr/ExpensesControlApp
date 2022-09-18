@@ -1,0 +1,44 @@
+﻿@model ExpensesControlApp.DTOs.CreateExpenseDTO
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Description" placeholder="Enter the description" class="form-control" />
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Value" type="number" placeholder="Enter the value" class="form-control" />
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input asp-for="Date" type="date" placeholder="Enter the date" class="form-control" />
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-grid">
+                <a asp-action="Index" class="btn btn-secondary btn-login text-uppercase fw-bold">Go back</a>
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-login text-uppercase fw-bold">Create</button>
+            </div>
+        </div>
+    </div>
+</form>

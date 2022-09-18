@@ -1,0 +1,71 @@
+﻿@model ExpensesControlApp.DTOs.ListExpenseDTO
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm">
+        <h1>Expenses</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <a asp-action="Create" asp-controller="Expense" class="btn btn-primary btn-block">New expense</a>
+    </div>
+</div>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input asp-for="InitialDate" type="date" placeholder="Enter the start date" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <input asp-for="FinalDate" type="date" placeholder="Enter the end date" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Value</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Items.Count > 0)
+                {
+                    foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Description</td>
+                            <td>@item.Value</td>
+                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                }
+                else 
+                {
+                    <tr><td colspan="4">No record found</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
